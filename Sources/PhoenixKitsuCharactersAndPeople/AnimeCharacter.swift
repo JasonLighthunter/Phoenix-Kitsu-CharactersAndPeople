@@ -6,7 +6,7 @@ public class AnimeCharacter: KitsuObject {
   public let objectID: String
   public let type: String
   public let links: Links
-  public private(set) var attributes: AnimeCharacterAttributes?
+  public let attributes: AnimeCharacterAttributes?
 
   private enum CodingKeys: String, CodingKey {
     case objectID = "id"
@@ -17,7 +17,7 @@ public class AnimeCharacter: KitsuObject {
 }
 
 public class AnimeCharacterAttributes: KitsuObjectAttributes {
-  public private(set) var createdAt: String?
-  public private(set) var updatedAt: String?
-  public let role: KitsuMediaCharacterRoleEnum?
+  public let createdAt: String?
+  public let updatedAt: String?
+  public let role: MediaCharacterRoleEnum?
 }

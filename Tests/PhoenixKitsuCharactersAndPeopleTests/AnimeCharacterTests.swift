@@ -1,12 +1,5 @@
-//
-//  AnimeCharacterTests.swift
-//  KitsuCharactersAndPeople
-//
-//  Created by Job Cuppen on 10/11/2017.
-
 import XCTest
-@testable import KitsuCharactersAndPeople
-import KitsuEnums
+@testable import PhoenixKitsuCharactersAndPeople
 
 class AnimeCharacterTests: XCTestCase {
   let decoder = JSONDecoder()
@@ -21,19 +14,6 @@ class AnimeCharacterTests: XCTestCase {
       "createdAt": "2017-08-08T12:39:19.217Z",
       "updatedAt": "2017-08-08T12:39:19.217Z",
       "role": "main"
-    ]
-  ]
-
-  let validEmptyStringsJSON: [String : Any] = [
-    "id": "4",
-    "type": "animeCharacters",
-    "links": [
-      "self": "https://kitsu.io/api/edge/anime-characters/4"
-    ],
-    "attributes": [
-      "createdAt": "",
-      "updatedAt": "",
-      "role": "supporting"
     ]
   ]
 
@@ -57,19 +37,6 @@ class AnimeCharacterTests: XCTestCase {
     "attributes": [
       "createdAt": nil,
       "updatedAt": nil,
-      "role": "supporting"
-    ]
-  ]
-
-  let invalidEmptyStringsJSON: [String : Any] = [
-    "id": "",
-    "type": "",
-    "links": [
-      "self": ""
-    ],
-    "attributes": [
-      "createdAt": "2017-08-08T12:39:19.217Z",
-      "updatedAt": "2017-08-08T12:39:19.217Z",
       "role": "supporting"
     ]
   ]
@@ -100,10 +67,12 @@ class AnimeCharacterTests: XCTestCase {
   ]
 
   var animeCharacter: AnimeCharacter?
+  var animeCharacterAttributes: AnimeCharacterAttributes?
 
   override func tearDown() {
-    self.animeCharacter = nil
-
+    animeCharacter = nil
+    animeCharacterAttributes = nil
+    
     super.tearDown()
   }
 
@@ -116,33 +85,18 @@ class AnimeCharacterTests: XCTestCase {
     } else {
       animeCharacter = nil
     }
+    animeCharacterAttributes = animeCharacter?.attributes
 
     XCTAssertNotNil(self.animeCharacter)
 
     XCTAssertEqual(self.animeCharacter?.objectID, "4")
     XCTAssertEqual(self.animeCharacter?.type, "animeCharacters")
-    XCTAssertEqual(self.animeCharacter?.createdAt, "2017-08-08T12:39:19.217Z")
-    XCTAssertEqual(self.animeCharacter?.updatedAt, "2017-08-08T12:39:19.217Z")
-    XCTAssertEqual(self.animeCharacter?.characterRole, MediaCharacterRoleEnum.main)
-  }
+    
+    XCTAssertNotNil(self.animeCharacterAttributes)
 
-  func testAnimeCharacterValidEmptyStrings() {
-    let json = self.validEmptyStringsJSON
-
-    if JSONSerialization.isValidJSONObject(json as Any) {
-      let data = try? JSONSerialization.data(withJSONObject: json as Any)
-      animeCharacter = try? decoder.decode(AnimeCharacter.self, from: data!)
-    } else {
-      animeCharacter = nil
-    }
-
-    XCTAssertNotNil(self.animeCharacter)
-
-    XCTAssertEqual(self.animeCharacter?.objectID, "4")
-    XCTAssertEqual(self.animeCharacter?.type, "animeCharacters")
-    XCTAssertNil(self.animeCharacter?.createdAt)
-    XCTAssertNil(self.animeCharacter?.updatedAt)
-    XCTAssertEqual(self.animeCharacter?.characterRole, MediaCharacterRoleEnum.supporting)
+    XCTAssertEqual(self.animeCharacterAttributes?.createdAt, "2017-08-08T12:39:19.217Z")
+    XCTAssertEqual(self.animeCharacterAttributes?.updatedAt, "2017-08-08T12:39:19.217Z")
+    XCTAssertEqual(self.animeCharacterAttributes?.role, MediaCharacterRoleEnum.main)
   }
 
   func testAnimeCharacterValidMissingData() {
@@ -154,14 +108,18 @@ class AnimeCharacterTests: XCTestCase {
     } else {
       animeCharacter = nil
     }
-
+    animeCharacterAttributes = animeCharacter?.attributes
+    
     XCTAssertNotNil(self.animeCharacter)
     
     XCTAssertEqual(self.animeCharacter?.objectID, "4")
     XCTAssertEqual(self.animeCharacter?.type, "animeCharacters")
-    XCTAssertNil(self.animeCharacter?.createdAt)
-    XCTAssertNil(self.animeCharacter?.updatedAt)
-    XCTAssertEqual(self.animeCharacter?.characterRole, MediaCharacterRoleEnum.supporting)
+    
+    XCTAssertNotNil(self.animeCharacterAttributes)
+    
+    XCTAssertNil(self.animeCharacterAttributes?.createdAt)
+    XCTAssertNil(self.animeCharacterAttributes?.updatedAt)
+    XCTAssertEqual(self.animeCharacterAttributes?.role, MediaCharacterRoleEnum.supporting)
   }
   
   func testAnimeCharacterValidNilData() {
@@ -173,27 +131,18 @@ class AnimeCharacterTests: XCTestCase {
     } else {
       animeCharacter = nil
     }
+    animeCharacterAttributes = animeCharacter?.attributes
     
     XCTAssertNotNil(self.animeCharacter)
     
     XCTAssertEqual(self.animeCharacter?.objectID, "4")
     XCTAssertEqual(self.animeCharacter?.type, "animeCharacters")
-    XCTAssertNil(self.animeCharacter?.createdAt)
-    XCTAssertNil(self.animeCharacter?.updatedAt)
-    XCTAssertEqual(self.animeCharacter?.characterRole, MediaCharacterRoleEnum.supporting)
-  }
-
-  func testAnimeCharactersInvalidEmptyStrings() {
-    let json = self.invalidEmptyStringsJSON
-
-    if JSONSerialization.isValidJSONObject(json as Any) {
-      let data = try? JSONSerialization.data(withJSONObject: json as Any)
-      animeCharacter = try? decoder.decode(AnimeCharacter.self, from: data!)
-    } else {
-      animeCharacter = nil
-    }
-
-    XCTAssertNil(self.animeCharacter)
+    
+    XCTAssertNotNil(self.animeCharacterAttributes)
+    
+    XCTAssertNil(self.animeCharacterAttributes?.createdAt)
+    XCTAssertNil(self.animeCharacterAttributes?.updatedAt)
+    XCTAssertEqual(self.animeCharacterAttributes?.role, MediaCharacterRoleEnum.supporting)
   }
 
   func testAnimeCharactersInvalidMissingData() {
