@@ -6,7 +6,7 @@ public class Casting: KitsuObject {
   public let objectID: String
   public let type: String
   public let links: Links
-  public private(set) var attributes: CastingAttributes?
+  public let attributes: CastingAttributes?
   
   private enum CodingKeys: String, CodingKey {
     case objectID = "id"
