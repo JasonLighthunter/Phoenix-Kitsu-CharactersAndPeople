@@ -102,11 +102,7 @@ class AnimeStaffTests: XCTestCase {
     
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
-      do {
-        animeStaff = try decoder.decode(AnimeStaff.self, from: data!)
-      } catch {
-        print(error.localizedDescription)
-      }
+      animeStaff = try? decoder.decode(AnimeStaff.self, from: data!)
     } else {
       animeStaff = nil
     }
