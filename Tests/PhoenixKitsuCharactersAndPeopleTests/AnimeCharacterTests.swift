@@ -44,7 +44,7 @@ class AnimeCharacterTests: XCTestCase {
   let invalidMissingDataJSON: [String : Any] = [
     "id": "4",
     "links": [
-      "self": "https://kitsu.io/api/edge/anime-productions/4"
+      "self": "https://kitsu.io/api/edge/anime-characters/4"
     ],
     "attributes": [
       "createdAt": "",
@@ -77,7 +77,7 @@ class AnimeCharacterTests: XCTestCase {
   }
 
   func testAnimeCharacterFullyFilled() {
-    let json = self.fullyFilledJSON
+    let json = fullyFilledJSON
 
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
@@ -87,16 +87,16 @@ class AnimeCharacterTests: XCTestCase {
     }
     animeCharacterAttributes = animeCharacter?.attributes
 
-    XCTAssertNotNil(self.animeCharacter)
+    XCTAssertNotNil(animeCharacter)
 
-    XCTAssertEqual(self.animeCharacter?.objectID, "4")
-    XCTAssertEqual(self.animeCharacter?.type, "animeCharacters")
+    XCTAssertEqual(animeCharacter?.objectID, "4")
+    XCTAssertEqual(animeCharacter?.type, "animeCharacters")
     
-    XCTAssertNotNil(self.animeCharacterAttributes)
+    XCTAssertNotNil(animeCharacterAttributes)
 
-    XCTAssertEqual(self.animeCharacterAttributes?.createdAt, "2017-08-08T12:39:19.217Z")
-    XCTAssertEqual(self.animeCharacterAttributes?.updatedAt, "2017-08-08T12:39:19.217Z")
-    XCTAssertEqual(self.animeCharacterAttributes?.role, MediaCharacterRoleEnum.main)
+    XCTAssertEqual(animeCharacterAttributes?.createdAt, "2017-08-08T12:39:19.217Z")
+    XCTAssertEqual(animeCharacterAttributes?.updatedAt, "2017-08-08T12:39:19.217Z")
+    XCTAssertEqual(animeCharacterAttributes?.role, MediaCharacterRoleEnum.main)
   }
 
   func testAnimeCharacterValidMissingData() {
@@ -110,20 +110,20 @@ class AnimeCharacterTests: XCTestCase {
     }
     animeCharacterAttributes = animeCharacter?.attributes
     
-    XCTAssertNotNil(self.animeCharacter)
+    XCTAssertNotNil(animeCharacter)
     
-    XCTAssertEqual(self.animeCharacter?.objectID, "4")
-    XCTAssertEqual(self.animeCharacter?.type, "animeCharacters")
+    XCTAssertEqual(animeCharacter?.objectID, "4")
+    XCTAssertEqual(animeCharacter?.type, "animeCharacters")
     
-    XCTAssertNotNil(self.animeCharacterAttributes)
+    XCTAssertNotNil(animeCharacterAttributes)
     
-    XCTAssertNil(self.animeCharacterAttributes?.createdAt)
-    XCTAssertNil(self.animeCharacterAttributes?.updatedAt)
-    XCTAssertEqual(self.animeCharacterAttributes?.role, MediaCharacterRoleEnum.supporting)
+    XCTAssertNil(animeCharacterAttributes?.createdAt)
+    XCTAssertNil(animeCharacterAttributes?.updatedAt)
+    XCTAssertEqual(animeCharacterAttributes?.role, MediaCharacterRoleEnum.supporting)
   }
   
   func testAnimeCharacterValidNilData() {
-    let json = self.validNilDataJSON
+    let json = validNilDataJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
@@ -133,19 +133,19 @@ class AnimeCharacterTests: XCTestCase {
     }
     animeCharacterAttributes = animeCharacter?.attributes
     
-    XCTAssertNotNil(self.animeCharacter)
+    XCTAssertNotNil(animeCharacter)
     
-    XCTAssertEqual(self.animeCharacter?.objectID, "4")
-    XCTAssertEqual(self.animeCharacter?.type, "animeCharacters")
+    XCTAssertEqual(animeCharacter?.objectID, "4")
+    XCTAssertEqual(animeCharacter?.type, "animeCharacters")
     
-    XCTAssertNotNil(self.animeCharacterAttributes)
+    XCTAssertNotNil(animeCharacterAttributes)
     
-    XCTAssertNil(self.animeCharacterAttributes?.createdAt)
-    XCTAssertNil(self.animeCharacterAttributes?.updatedAt)
-    XCTAssertEqual(self.animeCharacterAttributes?.role, MediaCharacterRoleEnum.supporting)
+    XCTAssertNil(animeCharacterAttributes?.createdAt)
+    XCTAssertNil(animeCharacterAttributes?.updatedAt)
+    XCTAssertEqual(animeCharacterAttributes?.role, MediaCharacterRoleEnum.supporting)
   }
 
-  func testAnimeCharactersInvalidMissingData() {
+  func testAnimeCharacterInvalidMissingData() {
     let json = self.invalidMissingDataJSON
 
     if JSONSerialization.isValidJSONObject(json as Any) {
@@ -155,11 +155,11 @@ class AnimeCharacterTests: XCTestCase {
       animeCharacter = nil
     }
 
-    XCTAssertNil(self.animeCharacter)
+    XCTAssertNil(animeCharacter)
   }
   
   func testAnimeCharacterInvalidNilData() {
-    let json = self.invalidNilDataJSON
+    let json = invalidNilDataJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
@@ -168,6 +168,6 @@ class AnimeCharacterTests: XCTestCase {
       animeCharacter = nil
     }
     
-    XCTAssertNil(self.animeCharacter)
+    XCTAssertNil(animeCharacter)
   }
 }

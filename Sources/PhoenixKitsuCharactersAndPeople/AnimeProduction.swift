@@ -17,9 +17,9 @@ public class AnimeProduction: KitsuObject {
 }
 
 public class AnimeProductionAttributes: KitsuObjectAttributes {
-  public private(set) var createdAt: String?
-  public private(set) var updatedAt: String?
-  public let role: AnimeProductionRoleEnum?
+  public let createdAt: String?
+  public let updatedAt: String?
+  public let role: AnimeProductionRoleEnum
   
   private enum CodingKeys: String, CodingKey {
     case createdAt
