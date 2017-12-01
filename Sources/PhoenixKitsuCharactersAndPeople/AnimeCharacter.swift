@@ -19,5 +19,5 @@ public class AnimeCharacter: KitsuObject {
 public class AnimeCharacterAttributes: KitsuObjectAttributes {
   public let createdAt: String?
   public let updatedAt: String?
-  public let role: MediaCharacterRoleEnum?
+  public let role: MediaCharacterRoleEnum
 }
