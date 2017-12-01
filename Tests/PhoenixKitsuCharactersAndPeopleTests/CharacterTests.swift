@@ -17,10 +17,10 @@ class CharacterTests: XCTestCase {
       "slug": "jet",
       "name": "Jet Black",
       "malId": 3,
-      "description": "description"
-//      "image": [
-//        "original": "https://media.kitsu.io/characters/images/1/original.jpg?1483096805"
-//      ]
+      "description": "description",
+      "image": [
+        "original": "https://media.kitsu.io/characters/images/1/original.jpg?1483096805"
+      ]
     ]
   ]
   
@@ -48,10 +48,8 @@ class CharacterTests: XCTestCase {
       "slug": nil,
       "name": nil,
       "malId": nil,
-      "description": nil
-      //      "image": [
-      //        "original": "https://media.kitsu.io/characters/images/1/original.jpg?1483096805"
-      //      ]
+      "description": nil,
+      "image": nil
     ]
   ]
   

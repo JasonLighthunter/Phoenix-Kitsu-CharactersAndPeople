@@ -23,7 +23,7 @@ public class CharacterAttributes: KitsuObjectAttributesWithTimestamp {
   public let name: String?
   public let myAnimeListID: Int?
   public let description: String?
-//  public let image: KitsuImage?
+  public let image: Image?
   
   private enum CodingKeys: String, CodingKey {
     case createdAt
@@ -32,6 +32,6 @@ public class CharacterAttributes: KitsuObjectAttributesWithTimestamp {
     case name
     case myAnimeListID = "malId"
     case description
-//    case image
+    case image
   }
 }
