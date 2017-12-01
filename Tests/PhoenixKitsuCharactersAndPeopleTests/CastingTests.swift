@@ -116,11 +116,7 @@ class CastingTests: XCTestCase {
     
     if JSONSerialization.isValidJSONObject(json as Any) {
       let data = try? JSONSerialization.data(withJSONObject: json as Any)
-      do {
-        casting = try decoder.decode(Casting.self, from: data!)
-      } catch {
-        print(error.localizedDescription)
-      }
+      casting = try? decoder.decode(Casting.self, from: data!)
     } else {
       casting = nil
     }
