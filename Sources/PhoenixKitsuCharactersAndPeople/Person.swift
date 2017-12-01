@@ -1,7 +1,7 @@
 import PhoenixKitsuCore
 
 public class Person: KitsuObject {
-  public static var requestURLString = "castings"
+  public static var requestURLString = "people"
   
   public let objectID: String
   public let type: String

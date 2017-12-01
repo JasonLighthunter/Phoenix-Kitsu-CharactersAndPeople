@@ -1,12 +1,12 @@
 import PhoenixKitsuCore
 
-public class Character: KitsuObject {
-  public static var requestURLString = "characters"
+public class Producer: KitsuObject {
+  public static var requestURLString = "producers"
   
   public let objectID: String
   public let type: String
   public let links: Links
-  public let attributes: CharacterAttributes?
+  public let attributes: ProducerAttributes?
   
   private enum CodingKeys: String, CodingKey {
     case objectID = "id"
@@ -16,22 +16,16 @@ public class Character: KitsuObject {
   }
 }
 
-public class CharacterAttributes: KitsuObjectAttributesWithTimestamp {
+public class ProducerAttributes: KitsuObjectAttributesWithTimestamp {
   public let createdAt: String
   public let updatedAt: String
   public let slug: String?
   public let name: String?
-  public let myAnimeListID: Int?
-  public let description: String?
-  public let image: Image?
   
   private enum CodingKeys: String, CodingKey {
     case createdAt
     case updatedAt
     case slug
     case name
-    case myAnimeListID = "malId"
-    case description
-    case image
   }
 }

@@ -74,7 +74,7 @@ class MangaStaffTests: XCTestCase {
     super.tearDown()
   }
   
-  func testmangaProdcutionFullyFilled() {
+  func testMangaStaffFullyFilled() {
     let json = fullyFilledJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {
@@ -97,7 +97,7 @@ class MangaStaffTests: XCTestCase {
     XCTAssertEqual(mangaStaffAttributes?.role, "studio")
   }
   
-  func testmangaStaffValidMissingData() {
+  func testMangaStaffValidMissingData() {
     let json = validMissingDataJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {
@@ -120,7 +120,7 @@ class MangaStaffTests: XCTestCase {
     XCTAssertNil(mangaStaffAttributes?.role)
   }
   
-  func testmangaStaffValidNilData() {
+  func testMangaStaffValidNilData() {
     let json = validNilDataJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {
@@ -143,7 +143,7 @@ class MangaStaffTests: XCTestCase {
     XCTAssertNil(mangaStaffAttributes?.role)
   }
   
-  func testmangaStaffInvalidMissingData() {
+  func testMangaStaffInvalidMissingData() {
     let json = invalidMissingDataJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {
@@ -156,7 +156,7 @@ class MangaStaffTests: XCTestCase {
     XCTAssertNil(mangaStaff)
   }
   
-  func testmangaStaffInvalidNilData() {
+  func testMangaStaffInvalidNilData() {
     let json = invalidNilDataJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {

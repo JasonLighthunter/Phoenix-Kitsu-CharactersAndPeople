@@ -81,7 +81,7 @@ class PersonTests: XCTestCase {
     super.tearDown()
   }
   
-  func testAnimeProdcutionFullyFilled() {
+  func testPersonFullyFilled() {
     let json = fullyFilledJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {

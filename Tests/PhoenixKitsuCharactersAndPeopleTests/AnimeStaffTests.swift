@@ -74,7 +74,7 @@ class AnimeStaffTests: XCTestCase {
     super.tearDown()
   }
   
-  func testAnimeProdcutionFullyFilled() {
+  func testAnimeStaffFullyFilled() {
     let json = fullyFilledJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {
