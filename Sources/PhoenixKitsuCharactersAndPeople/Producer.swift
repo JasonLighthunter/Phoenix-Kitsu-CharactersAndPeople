@@ -21,11 +21,4 @@ public class ProducerAttributes: KitsuObjectAttributesWithTimestamp {
   public let updatedAt: String
   public let slug: String?
   public let name: String?
-  
-  private enum CodingKeys: String, CodingKey {
-    case createdAt
-    case updatedAt
-    case slug
-    case name
-  }
 }
