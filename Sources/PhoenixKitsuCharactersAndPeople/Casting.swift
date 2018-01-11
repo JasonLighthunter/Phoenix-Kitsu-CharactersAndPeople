@@ -1,19 +1,8 @@
 import PhoenixKitsuCore
+import Requestable
 
-public class Casting: KitsuObject {
+public class Casting: KitsuObject<CastingAttributes>, Requestable {
   public static var requestURLString = "castings"
-  
-  public let objectID: String
-  public let type: String
-  public let links: Links
-  public let attributes: CastingAttributes?
-  
-  private enum CodingKeys: String, CodingKey {
-    case objectID = "id"
-    case type
-    case links
-    case attributes
-  }
 }
 
 public class CastingAttributes: KitsuObjectAttributesWithTimestamp {
